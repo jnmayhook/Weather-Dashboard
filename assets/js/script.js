@@ -51,7 +51,7 @@ function displayWeather(cityName) {
                     for (var i = 1; i < 6; i++) {
                         cards =
                             cards +
-                            `<ul class="col-2 day">
+                            `<ul class="col-12 col-xl-2 day">
         <li>${moment(fiveDayData.daily[i].dt, "X").format(" MM/DD/YYYY")}</li>
         <li><img src ="http://openweathermap.org/img/wn/${fiveDayData.daily[i].weather[0].icon
                             }@2x.png" /></li>
@@ -84,15 +84,17 @@ function displayCity() {
 }
 displayCity();
 
-searchForm.addEventListener("submit", dashboard);
+searchForm.addEventListener("submit", dashboard); 
 
 function clearSearchHistory() {
     localStorage.clear();
     pastSearchedCitiesEl.innerHTML = "";
-  }
-  clearBtn.addEventListener("click", function() {
+    searchHistory = [];
+}
+clearBtn.addEventListener("click", function () {
     clearSearchHistory();
-  });
+});
 
 // if the clear button is clicked, search history buttons are removed and local storage cleared
 // localStorage.clear();
+// location.reload();
